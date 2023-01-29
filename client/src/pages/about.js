@@ -11,7 +11,7 @@ function About() {
         <Card color="blue">
           <Card.Content>
             <Card.Header>Alex Cushing</Card.Header>
-            <Card.Description>info here</Card.Description>
+            <Card.Description>info here here</Card.Description>
           </Card.Content>
         </Card>
         <Card>
