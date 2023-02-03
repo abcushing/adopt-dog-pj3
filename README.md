@@ -1,4 +1,38 @@
-# Getting Started with Create React App
+## Description
+
+this app is an informational website on dog breeds and dog adoption in general
+
+https://github.com/abcushing/adopt-dog-pj3
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+npm i to install node modules, npm run develop from the root to start the app
+
+## Usage
+
+educational/undefined
+
+## License
+
+n/a (educational)
+
+## Contributing
+
+this project is an assigment for our bootcamp course. The contributors include abcushing, kamkam2299, and evanhu96
+
+## Questions
+
+- [Github](https://github.com/abcushing/adopt-dog-pj3)
+- We are reachable on Github for any additonal questions you may have.
+
+# React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

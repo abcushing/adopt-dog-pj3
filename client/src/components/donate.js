@@ -8,7 +8,7 @@ function Donate() {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<Button>Donate Here</Button>}
+      trigger={<Button color="green">Donate Here</Button>}
     >
       <Modal.Header>Make a Donation</Modal.Header>
       <Modal.Content>
