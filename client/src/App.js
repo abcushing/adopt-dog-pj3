@@ -5,7 +5,7 @@ import Contact from "./pages/contact";
 // import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import NavBar from "./components/navbar"
-import { BrowserRouter as Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 const stripePromise = loadStripe("tbd");
@@ -25,11 +25,11 @@ function App() {
               element={<Home/>} 
             />
             <Route 
-              path="/about" 
+              path="/About" 
               element={<About/>} 
             />
             <Route 
-              path="/contact" 
+              path="/Contact" 
               element={<Contact/>} 
             />
           </Routes>

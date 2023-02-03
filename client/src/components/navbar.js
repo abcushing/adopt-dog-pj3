@@ -1,16 +1,15 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Adopt Now</a></li>
-        <li><a href="#">Resources</a></li>
-      </ul>
-    </nav>
+    <div>
+        <Link to="/">Home</Link>
+        <Link to="/About">About</Link>
+        <Link to="/Contact">Contact</Link>
+        <a href="https://www.ddfl.org/adoption" target="_blank" rel="noreferrer">Adopt Now</a>
+        <a href="https://www.peta.org/" target="_blank" rel="noreferrer">Resources</a>
+    </div>
   );
 };
 
