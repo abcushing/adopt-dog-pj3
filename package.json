@@ -4,10 +4,10 @@
     "description": "",
     "main": "server/server.js",
     "scripts": {
-        "start":  "concurrently \"cd server && npm start\" \"cd client && npm start\"",
+        "start": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
         "develop": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
         "install": "cd server && npm i && cd ../client && npm i",
-        "scrape":"cd server && cd seeds && cd scraper && node breedScrape.js",
+        "scrape": "cd server && cd seeds && cd scraper && node breedScrape.js",
         "seed": "concurrently \"cd server && cd seeds && cd scraper && node breedScrape.js\" cd server && cd seeds && cd utils && node seed.js",
         "build": "cd client && npm run build"
     },
@@ -23,6 +23,7 @@
         "express": "^4.18.2",
         "express-graphql": "^0.12.0",
         "jsonwebtoken": "^9.0.0",
+        "mongoose": "^6.9.1",
         "react-router-dom": "^6.8.0"
     }
 }
