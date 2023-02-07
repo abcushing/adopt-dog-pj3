@@ -5,6 +5,7 @@ function Home() {
   return (
     <div>
       <Header></Header>
+      <br></br>
       dogs db table here
     </div>
   );

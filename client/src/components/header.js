@@ -6,7 +6,6 @@ function Header() {
   return (
     <div>
       <Donate></Donate>
-      header here
     </div>
   );
 }
