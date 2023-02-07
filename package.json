@@ -5,9 +5,10 @@
     "main": "server/server.js",
     "scripts": {
         "start": "node server --ignore client",
-        "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
+        "develop": "concurrently \"cd server && node server.js\" \"cd client && npm start\"",
         "install": "cd server && npm i && cd ../client && npm i",
-        "seed": "cd server && npm run seed",
+        "scrape":"cd server && cd seeds && cd scraper && node breedScrape.js",
+        "seed": "concurrently \"cd server && cd seeds && cd scraper && node breedScrape.js\" cd server && cd seeds && cd utils && node seed.js",
         "build": "cd client && npm run build"
     },
     "keywords": [],

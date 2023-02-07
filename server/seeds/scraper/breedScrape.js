@@ -10,7 +10,7 @@ connection.on("error", (err) => err);
 connection.once("open", async () => {
   // get list of symbols
   // destroy dog()
-
+  console.log('Please wait one moment while we grab your data...')
   async function scrape() {
     axios("https://www.thekennelclub.org.uk/search/breeds-a-to-z/", {
       headers: { "Accept-Encoding": "gzip,deflate,compress" },
