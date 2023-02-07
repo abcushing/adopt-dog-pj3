@@ -19,7 +19,7 @@ const DogType = new GraphQLObjectType({
     breed: { type: GraphQLString },
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
-    imgLink:{ type: GraphQLString }
+    imgLink: { type: GraphQLString },
   }),
 });
 
@@ -107,7 +107,12 @@ const RootQuery = new GraphQLObjectType({
     // dynamic facet search
     facetSearch: {
       type: new GraphQLList(BreedType),
-      args: { exercise: { type: GraphQLList(GraphQLString) },category: { type: GraphQLList(GraphQLString) } ,grooming: { type: GraphQLList(GraphQLString) },homeSize: { type: GraphQLList(GraphQLString) }},
+      args: {
+        exercise: { type: new GraphQLList(GraphQLString) },
+        category: { type: new GraphQLList(GraphQLString) },
+        grooming: { type: new GraphQLList(GraphQLString) },
+        homeSize: { type: new GraphQLList(GraphQLString) },
+      },
       resolve(parent, args) {
         return Breed.find(args);
       },
@@ -125,7 +130,7 @@ const mutation = new GraphQLObjectType({
       args: {
         breed: { type: GraphQLString },
         name: { type: GraphQLString },
-        age: { type: GraphQLInt }
+        age: { type: GraphQLInt },
       },
       resolve(parent, args) {
         console.log(args);
