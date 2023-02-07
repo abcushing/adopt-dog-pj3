@@ -4,7 +4,7 @@
     "description": "",
     "main": "server/server.js",
     "scripts": {
-        "start": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
+        "start":  "concurrently \"cd server && npm start\" \"cd client && npm start\"",
         "develop": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
         "install": "cd server && npm i && cd ../client && npm i",
         "scrape":"cd server && cd seeds && cd scraper && node breedScrape.js",
