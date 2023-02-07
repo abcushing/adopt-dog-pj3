@@ -6,7 +6,7 @@ import NavBar from "./components/navbar";
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 const client = new ApolloClient({
-  uri: `http://localhost:${process.env.PORT}/graphql`,
+  uri: `http://localhost:4000/graphql`,
   cache: new InMemoryCache(),
 });
 
