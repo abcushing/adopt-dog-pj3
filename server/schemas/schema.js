@@ -147,7 +147,7 @@ const mutation = new GraphQLObjectType({
     deleteDog: {
       type: DogType,
       args: {
-        id: { type: GraphQLNonNull(GraphQLID) },
+        id: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parent, args) {
         return Dog.findByIdAndRemove(args.id);
