@@ -25,5 +25,9 @@
         "jsonwebtoken": "^9.0.0",
         "mongoose": "^6.9.1",
         "react-router-dom": "^6.8.0"
-    }
+    },
+    "engines": {
+        "node": "17.x",
+        "npm" : "6.x"
+      }
 }
