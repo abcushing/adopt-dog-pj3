@@ -4,9 +4,9 @@ import SearchResults from "./SearchResults";
 import BreedPage from "./BreedPage";
 import Adoptables from "./Adoptables";
 import AddDog from "./AddDog";
-import Home from "../pages/Home";
-import About from "../pages/About"
-import Contact from "../pages/Contact"
+import Home from "../pages/home";
+import About from "../pages/about"
+import Contact from "../pages/contact"
 
 export default function Body({ breed, setBreed, current, setCurrent }) {
   if (current === "search") {
