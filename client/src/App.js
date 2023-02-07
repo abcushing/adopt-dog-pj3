@@ -1,32 +1,31 @@
 import "./App.css";
-import Home from "./pages/home";
-import About from "./pages/about";
-import Contact from "./pages/contact";
-// import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-import NavBar from "./components/navbar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import SearchResults from "./components/SearchResults";
+import Body from "./components/Body";
+import NavBar from "./components/NavBar"
+import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+const client = new ApolloClient({
+  uri: "http://localhost:4000/graphql",
+  cache: new InMemoryCache(),
+});
 
-const stripePromise = loadStripe("tbd");
 function App() {
-  const options = {
-    // passing the client secret obtained from the server
-    // clientSecret: "{{CLIENT_SECRET}}",
-  };
+  const[current,setCurrent] = useState("search")
+  const [breed,setBreed] = useState('Saluki')
+
+
   return (
-    // <Elements stripe={stripePromise} options={options}>
+    <>
     <BrowserRouter>
-      <>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Contact" element={<Contact />} />
-        </Routes>
-      </>
+      <ApolloProvider client={client}>
+        <section >
+          <NavBar setCurrent={setCurrent} setBreed = {setBreed}/>
+          <Body current = {current} setCurrent= {setCurrent} breed = {breed} setBreed= {setBreed} />
+        </section>
+      </ApolloProvider>
     </BrowserRouter>
-    // </Elements>
+    </>
   );
 }
 
