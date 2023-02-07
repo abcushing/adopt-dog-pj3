@@ -2,7 +2,7 @@ import "./App.css";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import SearchResults from "./components/SearchResults";
 import Body from "./components/Body";
-import NavBar from "./components/NavBar"
+import NavBar from "./components/navbar"
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 const client = new ApolloClient({
