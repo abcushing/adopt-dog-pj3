@@ -1,9 +1,8 @@
 import { useQuery } from "@apollo/client";
-import { GET_DOGS } from "../queries/dogQuery";
+import { GET_DOGS } from "../utils/queries";
 import DogRow from "./DogRow";
 
 export default function Adoptables(breed) {
-  console.log(breed.breed);
   const { loading, error, data } = useQuery(GET_DOGS, {
     variables:  {breed:breed.breed} 
   });

@@ -1,8 +1,7 @@
 import { useMutation } from "@apollo/client";
-import { DELETE_DOG } from "../mutations/dogMutations";
+import { DELETE_DOG } from "../utils/mutations";
 
 export default function DogRow({ dog }) {
-  console.log(dog.id);
   const [deleteDog] = useMutation(DELETE_DOG, {
     variables: { id: dog.id },
   });

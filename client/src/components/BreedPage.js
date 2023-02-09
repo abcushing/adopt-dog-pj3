@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client"
-import { GET_BREED } from "../queries/breedQuery"
+import { GET_BREED } from "../utils/queries"
 
 export default function BreedPage(breed) {
   const{loading,error,data} = useQuery(GET_BREED,{variables:breed})
@@ -7,7 +7,8 @@ export default function BreedPage(breed) {
   return (
     < >
     {!loading && !error && (
-    <div id="breedContainer">
+      <div id="breedContainer">
+      {console.log(data)}
         <img src={data.breed.imgLink}/>
         <span>
           <h2>Breed Name:{data.breed.breed}</h2>

@@ -1,43 +1,66 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const QUERY_USER = gql`
-  query user($username: String!) {
-    user(username: $username) {
+export const GET_DOGS = gql`
+query DogsByBreed($breed: String) {
+  dogsByBreed(breed: $breed) {
+    _id
+    breed
+    name
+    age
+    imgLink
+  }
+}
+`;
+export const GET_ALL_DOGS = gql`
+  query Dogs {
+    dogs {
       _id
-      username
-      email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
+      breed
+      name
+      age
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const GET_BREEDS = gql`
+  query FacetSearch(
+    $exercise: [String]
+    $category: [String]
+    $grooming: [String]
+    $homeSize: [String]
+  ) {
+    facetSearch(
+      exercise: $exercise
+      category: $category
+      grooming: $grooming
+      homeSize: $homeSize
+    ) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      breed
+      category
+      size
+      exercise
+      homeSize
+      grooming
+      coat
+      lifeSpan
+      imgLink
     }
   }
 `;
-
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const GET_BREED = gql`
+  query GetBreed($breed: String) {
+    breed(breed: $breed) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      breed
+      category
+      size
+      exercise
+      homeSize
+      grooming
+      coat
+      lifeSpan
+      imgLink
     }
   }
 `;

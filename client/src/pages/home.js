@@ -6,7 +6,7 @@ function Home() {
     <div>
       <Header></Header>
       <br></br>
-      dogs db table here
+      Have fun finding your next best friend!
     </div>
   );
 }

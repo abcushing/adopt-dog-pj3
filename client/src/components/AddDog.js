@@ -1,19 +1,21 @@
 import { useState } from "react";
-import { ADD_DOG } from "../mutations/dogMutations";
+import { ADD_DOG } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
+import Auth from '../utils/auth';
 
 export default function AddDog() {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
   var [age, setAge] = useState("");
-
   const [addDog] = useMutation(ADD_DOG, {
     variables: { breed: breed, name: name, age: age },
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (!Auth.loggedIn()){
+      return alert("Admins Only")
+    }
     if (name === "" || breed === "" || age ===0) {
       return alert("Please fill in all fields");
     }
