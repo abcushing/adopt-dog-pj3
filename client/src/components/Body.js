@@ -5,33 +5,39 @@ import BreedPage from "./BreedPage";
 import Adoptables from "./Adoptables";
 import AddDog from "./AddDog";
 import Home from "../pages/home";
-import About from "../pages/about"
-import Contact from "../pages/contact"
+import About from "../pages/about";
+import Contact from "../pages/contact";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
 
 export default function Body({ breed, setBreed, current, setCurrent }) {
   if (current === "search") {
     if (breed === "") {
       return (
         <div>
-          <SearchResults  setBreed= {setBreed} setCurrent = {setCurrent}/>
+          <SearchResults setBreed={setBreed} setCurrent={setCurrent} />
         </div>
       );
     } else {
-
-      return <><BreedPage breed = {breed}/></>;
+      return (
+        <>
+          <BreedPage breed={breed} />
+        </>
+      );
     }
   } else if (current === "adoptables") {
-
-    return <Adoptables breed = {breed}/>;
-  }else if (current ==="newDog"){
-    return <AddDog/>
-  }else if(current ==="home"){
-    return <Home/>
-  
-  }else if(current ==="about"){
-    return <About/>
-  
-  }else if(current ==="contact"){
-    return <Contact/>
+    return <Adoptables breed={breed} />;
+  } else if (current === "newDog") {
+    return <AddDog />;
+  } else if (current === "home") {
+    return <Home />;
+  } else if (current === "about") {
+    return <About />;
+  } else if (current === "Login") {
+    return <Login />;
+  } else if (current === "Signup") {
+    return <Signup />;
+  } else if (current === "contact") {
+    return <Contact />;
   }
 }
