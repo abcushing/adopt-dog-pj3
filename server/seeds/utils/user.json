@@ -1,0 +1,32 @@
+[
+    {
+      "username": "evan",
+      "name": "evan",
+      "email": "evan@techfriends.dev",
+      "password": "password01"
+    },
+    {
+      "username": "alex",
+      "name": "alex",
+      "email": "alex@techfriends.dev",
+      "password": "password02"
+    },
+    {
+      "username": "kam",
+      "name": "kam",
+      "email": "kam@techfriends.dev",
+      "password": "password03"
+    },
+    {
+      "username": "rob",
+      "name": "rob",
+      "email": "rob@techfriends.dev",
+      "password": "password04"
+    },
+    {
+      "username": "maria",
+      "name": "maria",
+      "email": "maria@techfriends.dev",
+      "password": "password04"
+    }
+]

@@ -1,12 +1,11 @@
 import "./App.css";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
-import SearchResults from "./components/SearchResults";
 import Body from "./components/Body";
 import NavBar from "./components/navbar";
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 const client = new ApolloClient({
-  uri: `http://localhost:${process.env.PORT}/graphql`,
+  uri: `/graphql`,
   cache: new InMemoryCache(),
 });
 
@@ -15,9 +14,8 @@ function App() {
   const [breed, setBreed] = useState("Saluki");
 
   return (
-    <>
-      <BrowserRouter>
-        <ApolloProvider client={client}>
+      <ApolloProvider client={client}>
+        <BrowserRouter>
           <section>
             <NavBar setCurrent={setCurrent} setBreed={setBreed} />
             <Body
@@ -27,9 +25,8 @@ function App() {
               setBreed={setBreed}
             />
           </section>
-        </ApolloProvider>
-      </BrowserRouter>
-    </>
+        </BrowserRouter>
+      </ApolloProvider>
   );
 }
 

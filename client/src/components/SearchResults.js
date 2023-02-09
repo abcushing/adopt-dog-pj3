@@ -1,10 +1,10 @@
-// to query graphql 
+// to query graphql
 import { useQuery } from "@apollo/client";
 import BreedRow from "./BreedRow";
-import { GET_BREEDS } from "../queries/breedQuery";
+import { GET_BREEDS } from "../utils/queries";
 import { useState } from "react";
 
-export default function SearchResults({ setBreed,setCurrent}) {
+export default function SearchResults({ setBreed, setCurrent }) {
   // Starter object to find all breeds on load
   const starterObject = {
     category: ["Toy", "Hound", "Terrier", "Utility", "Pastoral", "Working"],
@@ -17,7 +17,7 @@ export default function SearchResults({ setBreed,setCurrent}) {
 
     homeSize: ["Flat/ Apartment", "Large house", "Small house"],
 
-    grooming: ["Every day", "More than once a week", "Once a week"]
+    grooming: ["Every day", "More than once a week", "Once a week"],
   };
   //   different states for checkboxes
   var [findObject, setFindObject] = useState({});
@@ -39,7 +39,7 @@ export default function SearchResults({ setBreed,setCurrent}) {
 
   // hand a change in checkbox to dynamically create object
   const newChange = async (event) => {
-    findObject = starterObject
+    findObject = starterObject;
     //T Handle check
     if (event.target.checked) {
       //* determing which section was checked
@@ -50,7 +50,7 @@ export default function SearchResults({ setBreed,setCurrent}) {
         setActivityLevel(activityLevel);
         // set property of "findObject" based on new array
         findObject.exercise = activityLevel;
-        // set FindObject 
+        // set FindObject
         setFindObject(findObject);
         //* determing which section was checked
       } else if (event.target.name === "category") {
@@ -60,7 +60,7 @@ export default function SearchResults({ setBreed,setCurrent}) {
         setDogCategory(dogCategory);
         // set property of "findObject" based on new array
         findObject.category = dogCategory;
-        // set FindObject 
+        // set FindObject
         setFindObject(findObject);
         //* determing which section was checked
       } else if (event.target.name === "house") {
@@ -70,7 +70,7 @@ export default function SearchResults({ setBreed,setCurrent}) {
         setHouse(house);
         // set property of "findObject" based on new array
         findObject.homeSize = house;
-        // set FindObject 
+        // set FindObject
         setFindObject(findObject);
         //* determing which section was checked
       } else {
@@ -80,7 +80,7 @@ export default function SearchResults({ setBreed,setCurrent}) {
         setGrooming(grooming);
         // set property of "findObject" based on new array
         findObject.grooming = grooming;
-        // set FindObject 
+        // set FindObject
         setFindObject(findObject);
       }
     } else {
@@ -102,7 +102,7 @@ export default function SearchResults({ setBreed,setCurrent}) {
         findObject.exercise = activityLevel;
         // if search array is empty fill array because client doesn't care about current section
         if (!activityLevel.length) {
-          setActivityLevel (starterObject.exercise);
+          setActivityLevel(starterObject.exercise);
         }
         // set state based on new array
         setActivityLevel(activityLevel);
@@ -122,7 +122,7 @@ export default function SearchResults({ setBreed,setCurrent}) {
         findObject.category = dogCategory;
         // if search array is empty fill array because client doesn't care about current section
         if (!dogCategory.length) {
-          findObject.category=  starterObject.category;
+          findObject.category = starterObject.category;
         }
         // set state based on new array
         setDogCategory(dogCategory);
@@ -142,11 +142,11 @@ export default function SearchResults({ setBreed,setCurrent}) {
         findObject.homeSize = house;
         // if search array is empty fill array because client doesn't care about current section
         if (!house.length) {
-          findObject.homeSize=  starterObject.homeSize;
+          findObject.homeSize = starterObject.homeSize;
         }
         // set state based on new array
         setHouse(house);
-        setFindObject(house)
+        setFindObject(house);
         //* determine which box was checkeddObject(findObject);
       } else {
         for (var i = 0; i < grooming.length; i++) {
@@ -156,13 +156,12 @@ export default function SearchResults({ setBreed,setCurrent}) {
             grooming = grooming.filter(function (el) {
               return el !== event.target.id;
             });
-            
           }
         }
         // set property on findObject with element filtered out
         findObject.grooming = grooming;
         if (!grooming.length) {
-          grooming=  starterObject.grooming;
+          grooming = starterObject.grooming;
         }
         // if search array is empty fill array because client doesn't care about current section
         // set state based on new array
@@ -171,17 +170,22 @@ export default function SearchResults({ setBreed,setCurrent}) {
       }
     }
     // SUPERCOOL refetch operation requeries based on object dynamically created in this function
-    refetch({ exercise:findObject.exercise,category: findObject.category,grooming:findObject.grooming,homeSize:findObject.homeSize });
+    refetch({
+      exercise: findObject.exercise,
+      category: findObject.category,
+      grooming: findObject.grooming,
+      homeSize: findObject.homeSize,
+    });
   };
 
-  //fill in case empty array
+  // fill in case empty array
 
   return (
     <>
       {" "}
       {/*  wont send results till done loading and no error  */}
       {!loading && !error && (
-        //   {/* section for search sidbar */}
+        //   {/* section for search sidebar */}
         <section>
           <div>
             <div id="sideBar">
@@ -374,9 +378,9 @@ export default function SearchResults({ setBreed,setCurrent}) {
             </thead>
             <tbody>
               {/* dynamically create rows from DogRow based on last query */}
-              {data.facetSearch.map((dog) => (
+               {data.facetSearch.map((dog) => (
                 <BreedRow key={dog.id} dog={dog}  setBreed= {setBreed} setCurrent={setCurrent}/>
-              ))}
+              ))} 
             </tbody>
           </table>
         </section>
